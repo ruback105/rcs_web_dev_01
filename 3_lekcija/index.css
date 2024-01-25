@@ -1,31 +1,152 @@
-p#special.paragraph {
-  color: violet;
+/* Normalize */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-#special {
-  color: royalblue;
+a {
+  text-decoration: none;
+  color: #fff;
 }
 
-p.paragraph {
-  color: chartreuse;
-}
-
-.paragraph {
-  color: black;
-}
-
-[data-testid="p-testid"] {
+a:hover {
   color: red;
 }
 
-p {
-  color: red;
+li {
+  list-style: none;
 }
 
-p {
-  color: green;
+li::before {
+  content: "<";
 }
 
-p {
-  color: yellow;
+li::after {
+  content: ">";
+}
+
+body {
+  position: relative;
+}
+
+/* Header start */
+header {
+  position: sticky;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  border-bottom: 2px solid black;
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(77, 9, 121, 1) 35%,
+    rgba(0, 97, 255, 1) 100%
+  );
+  color: #fff;
+  display: flex;
+  flex-direction: row;
+  align-items: center; /* y axis */
+  justify-content: space-between; /* x axis */
+  padding: 5px 10px;
+  z-index: 100;
+}
+
+header .header-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  animation: rotate 2s linear infinite;
+}
+
+header img {
+  width: 80px;
+}
+
+header nav ul {
+  display: flex;
+  gap: 10px;
+}
+/* Header end */
+
+/* Hero start */
+section#hero {
+  width: 100vw;
+  height: 100vh;
+  background: url("assets/bg.jpeg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+
+section#hero p {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #fff;
+  position: absolute;
+  left: 50%;
+  top: 30%;
+  transform: translate(-50%, -50%);
+  text-align: justify;
+  animation: fadeIn 2s linear infinite;
+}
+/* Hero end */
+
+/* About me start */
+section#about-me {
+  width: 100vw;
+  height: 100vh;
+  background-color: red;
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+}
+
+section#about-me div {
+  width: 30%;
+  height: 300px;
+  background-color: blue;
+  transition: transform 0.4s cubic-bezier(0.01, 0.98, 0.99, 0.01),
+    background-color 1s ease-in-out;
+}
+
+section#about-me div:hover {
+  transform: scale(1.2);
+  background-color: yellow;
+}
+/* About me end */
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(90deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+aside {
+  position: fixed;
+  z-index: 100;
+  width: 30vw;
+  height: 100vh;
+  background-color: #fff;
 }
