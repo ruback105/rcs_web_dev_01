@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+header {
+  &.header {
+    @apply bg-gray-900 text-white;
+  }
+}
