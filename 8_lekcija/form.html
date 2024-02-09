@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="form.css" />
+    <script src="form.js" defer></script>
+  </head>
+  <body>
+    <form id="register-form" novalidate>
+      <fieldset>
+        <legend>Registration form</legend>
+        <div class="input-field">
+          <label for="name">Name</label>
+          <input
+            required
+            minlength="4"
+            maxlength="16"
+            type="text"
+            id="name"
+            placeholder="John Doe"
+          />
+        </div>
+        <div class="input-field">
+          <label for="email">Email</label>
+          <input
+            required
+            type="email"
+            id="email"
+            placeholder="test@gmail.com"
+          />
+        </div>
+        <div class="input-field">
+          <label for="password">Password</label>
+          <input
+            required
+            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+            type="text"
+            id="password"
+            placeholder="********"
+          />
+        </div>
+      </fieldset>
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>

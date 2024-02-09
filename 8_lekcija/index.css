@@ -1,0 +1,48 @@
+.selected {
+  color: red;
+  font-size: 20px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 20px;
+}
+
+.dogs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+div.dog {
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+  width: 20vw;
+  height: 30vh;
+  border: 2px solid black;
+  border-radius: 6px;
+}
+
+div.dog img {
+  width: 100%;
+  height: 80%;
+  border-radius: 12px;
+  object-fit: cover;
+  object-position: center;
+  padding: 6px;
+}
+
+div.dog .description {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 2px solid black;
+  padding: 4px;
+  height: 20%;
+}
