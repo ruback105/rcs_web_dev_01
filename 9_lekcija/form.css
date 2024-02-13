@@ -1,0 +1,38 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 20px;
+}
+
+form {
+  width: 50vw;
+}
+
+fieldset {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.input-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.input-field input {
+  padding: 10px;
+  width: 100%;
+}
+
+.input-field p.error {
+  color: red;
+  font-size: 14px;
+}
