@@ -10,6 +10,7 @@
 
 .todos-wrapper {
   display: flex;
+  justify-content: center;
   gap: 20px;
   flex-wrap: wrap;
 }
@@ -22,6 +23,7 @@
   flex-direction: column;
   height: 100px;
   width: 20vw;
+  min-width: 200px;
   justify-content: space-between;
 }
 
@@ -46,4 +48,6 @@
 .todo-card .todo-content .title {
   text-align: right;
   white-space: nowrap;
+  max-width: 150px;
+  overflow: hidden;
 }

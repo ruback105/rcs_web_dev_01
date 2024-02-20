@@ -20,10 +20,12 @@ class Element {
 
   // Method that will add class to element
   addClass() {
-    // this.className = "phone-wrapper test test2"
-    const classes = this.className.split(" "); // ["phone-wrapper", "test", "test2"]
-    // ...classes -> "phone-wrapper", "test", "test2"
-    this.element.classList.add(...classes);
+    if (this.className) {
+      // this.className = "phone-wrapper test test2"
+      const classes = this.className.split(" "); // ["phone-wrapper", "test", "test2"]
+      // ...classes -> "phone-wrapper", "test", "test2"
+      this.element.classList.add(...classes);
+    }
   }
 
   addTextContent() {
@@ -52,17 +54,80 @@ class Element {
   }
 }
 
+class Input extends Element {
+  constructor({ className, parentElement, type, checked }) {
+    super({
+      tag: "input",
+      className,
+      parentElement,
+    });
+
+    this.type = type;
+    this.checked = checked;
+
+    this.addInputAttributes();
+  }
+
+  addInputAttributes() {
+    this.element.type = this.type;
+    this.element.checked = this.checked;
+  }
+}
+
+class Todo {
+  constructor({ id, title, completed }, todoWrapper) {
+    this.id = id;
+    this.title = title;
+    this.completed = completed;
+    this.todoWrapper = todoWrapper;
+  }
+
+  draw() {
+    const todoCard = new Element({
+      tag: "div",
+      className: "todo-card",
+      parentElement: this.todoWrapper,
+    });
+
+    new Element({
+      tag: "p",
+      className: "user-id",
+      textContent: this.id,
+      parentElement: todoCard.element,
+    });
+
+    const todoContent = new Element({
+      tag: "div",
+      className: "todo-content",
+      parentElement: todoCard.element,
+    });
+
+    new Input({
+      type: "checkbox",
+      checked: this.completed,
+      parentElement: todoContent.element,
+    });
+
+    new Element({
+      tag: "p",
+      className: "title",
+      textContent: this.title,
+      parentElement: todoContent.element,
+    });
+  }
+}
+
 const rootElement = document.getElementById("root");
 
 const todoWrapper = new Element({
   tag: "div",
   className: "todos-wrapper",
-  textContent: "Hello world",
   parentElement: rootElement,
 });
 
-// fetchTodos().then((data) => {
-//   const todoCard = new Element({
-//     tag: "div"
-//   })
-// });
+fetchTodos().then((todos) => {
+  todos.forEach((todo) => {
+    const todoElement = new Todo(todo, todoWrapper.element);
+    todoElement.draw();
+  });
+});
