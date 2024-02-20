@@ -1,0 +1,65 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 20px;
+}
+
+.user-list {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.user-card {
+  padding: 10px;
+  border: 2px solid #000;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  width: 25vw;
+}
+
+.user-card .user-name {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: start;
+}
+
+.user-card .user-address {
+  margin-top: 10px;
+}
+
+form {
+  width: 50vw;
+}
+
+fieldset {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.input-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.input-field input {
+  padding: 10px;
+  width: 100%;
+}
+
+.input-field p.error {
+  color: red;
+  font-size: 14px;
+}
